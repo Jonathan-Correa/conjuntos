@@ -18,6 +18,7 @@ Lista operativa de trabajo abierto. Complementa [Roadmap.md](./Roadmap.md) y [De
 - [x] Zonas Sociales Fase 0: Alembic aditivo, servicio reservas, reject overlap, bloqueo mora, scoping `complex_id`
 - [x] Zonas Sociales Fase 1: CRUD admin, schedules/blackouts/images, catálogo app
 - [x] Zonas Sociales Fase 2: availability/slots, approve/reject/cancel admin, calendario reserva app
+- [x] Zonas Sociales Fase 3: reschedule, completed+jobs, export CSV, comprobante, horarios especiales, docs UI
 
 ## Crítico / inmediato
 
@@ -34,7 +35,7 @@ Lista operativa de trabajo abierto. Complementa [Roadmap.md](./Roadmap.md) y [De
 - [ ] Sustituir `datetime.utcnow`
 - [x] Zonas Sociales Fase 1: CRUD admin + schedules/blackouts + catálogo app
 - [x] Zonas Sociales Fase 2: availability engine + approve/reject admin + booking calendar UI
-- [ ] Zonas Sociales Fase 3: reschedule, reportes/export, completed, comprobantes
+- [x] Zonas Sociales Fase 3: reschedule, reportes/export, completed, comprobantes, special hours
 
 ## Admin
 

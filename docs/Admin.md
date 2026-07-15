@@ -42,8 +42,8 @@ Rutas (protegidas salvo login/signup):
 | `/dashboard` | KPIs |
 | `/dashboard/residents` | Residentes + paz y salvo |
 | `/dashboard/invoices` | Facturas |
-| `/dashboard/common-areas` | Zonas Sociales (CRUD + horarios + bloqueos + imágenes URL) |
-| `/dashboard/reservations` | Reservas (filtros, aprobar/rechazar/cancelar, nombre residente) |
+| `/dashboard/common-areas` | Zonas Sociales (CRUD + horarios + especiales + docs + bloqueos + imágenes URL) |
+| `/dashboard/reservations` | Reservas (filtros, aprobar/rechazar/cancelar, export CSV, job completed) |
 | `/dashboard/announcements` | Anuncios |
 
 ## Instalación

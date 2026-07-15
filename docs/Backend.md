@@ -66,9 +66,9 @@ Prefijo: `/api/v1`. Documentación interactiva: `/docs`.
 | Auth admin | `POST /auth/admin/login`, `/register`, `GET /auth/admin/me` |
 | Auth residente | `POST /auth/resident/login`, `/register`, `GET /auth/resident/me` |
 | Catálogo | `GET /towers`, `/announcements` |
-| Zonas sociales | `GET /common-areas` (JWT residente, scoped); `GET /admin/common-areas` |
-| Admin | `/admin/dashboard`, `/admin/units`, `/admin/residents`, facturas, anuncios, paz y salvo, contabilidad, reservas |
-| Residente | reservas (crear rechaza solape y mora), facturas, pagos, visitantes |
+| Zonas sociales | `GET /common-areas` (+detail/availability); admin CRUD + schedules/blackouts/special-hours/images |
+| Admin | dashboard, units, residents, facturas, anuncios, paz y salvo, contabilidad; reservas approve/reject/cancel/export; job maintenance |
+| Residente | reservas (crear/reprogramar/cancelar/comprobante; rechaza solape y mora), facturas, pagos, visitantes |
 
 Detalle de auth: [FlujoAutenticacion.md](./FlujoAutenticacion.md).
 

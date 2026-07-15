@@ -8,7 +8,7 @@ Estado actual: **MVP técnico** (auth dual, seed demo, admin con dashboard + tab
 |-----------|--------|
 | Auth login / registro | Funcional (API + app web/móvil) |
 | Home / perfil | Funcional básico |
-| Reservas (piscinas, salones, BBQ, canchas, gimnasios) | Operativo; catálogo/detalle zonas + reglas (Fase 1); availability calendar pendiente Fase 2 |
+| Reservas (piscinas, salones, BBQ, canchas, gimnasios) | Operativo Fases 0–3: slots, aprobación, reprogramar, comprobante, completed |
 | Pagos de administración | Operativo simulado (sin pasarela real) |
 | PQRS | Pendiente |
 | Correspondencia | Pendiente |
@@ -27,7 +27,7 @@ Estado actual: **MVP técnico** (auth dual, seed demo, admin con dashboard + tab
 |-----------|--------|
 | Gestión de conjuntos | Seed + modelo; UI limitada |
 | Apartamentos / casas (unidades) | API listado |
-| Zonas sociales / amenidades | CRUD admin + schedules/blackouts/images URL; catálogo residente |
+| Zonas sociales / amenidades | CRUD + schedules/blackouts/special hours/docs; export CSV reservas; catálogo residente |
 | Residentes / propietarios / arrendatarios | UI admin: listado, alta, paz y salvo |
 | Cartera / facturación | UI admin: listado + generación por periodo |
 | Contabilidad | Reporte API; sin UI aún |
@@ -58,7 +58,7 @@ Estado actual: **MVP técnico** (auth dual, seed demo, admin con dashboard + tab
 
 1. **Estabilizar MVP**: Alembic + tests; CI lint/typecheck.
 2. **Seguridad**: roles (`is_super_admin`), rate limit, ocultar signup admin cuando el flag está off.
-3. **Producto admin / Zonas Sociales**: Fases 0–2 hechas; Fase 3 reschedule/reportes/comprobantes; reporte contable UI.
+3. **Producto admin / Zonas Sociales**: Fases 0–3 hechas; Fase 4 puertos pagos/notificaciones/acceso; reporte contable UI.
 4. **Producto app**: PQRS, documentos; vehículos/mascotas cuando exista API.
 5. **Integraciones** de pago y notificaciones.
 6. **Observabilidad y escala** según [DecisionesArquitectura.md](./DecisionesArquitectura.md).
