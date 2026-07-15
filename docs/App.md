@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Cliente Flutter **ConjunApp Residentes** con autenticación, home, zonas sociales (catálogo/detalle + slots), facturas, reservas (reprogramar/comprobante), visitantes y comunicados. Disponible como Flutter Web en Compose (`:5174`) y como app nativa.
+Cliente Flutter **ConjunApp Residentes** con autenticación, home, zonas sociales (catálogo/detalle + slots), facturas, reservas (pagar stub / pase acceso / reprogramar / comprobante), visitantes y comunicados. Disponible como Flutter Web en Compose (`:5174`) y como app nativa.
 
 ## Tecnologías
 

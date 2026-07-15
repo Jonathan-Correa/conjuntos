@@ -68,7 +68,8 @@ Prefijo: `/api/v1`. Documentación interactiva: `/docs`.
 | Catálogo | `GET /towers`, `/announcements` |
 | Zonas sociales | `GET /common-areas` (+detail/availability); admin CRUD + schedules/blackouts/special-hours/images |
 | Admin | dashboard, units, residents, facturas, anuncios, paz y salvo, contabilidad; reservas approve/reject/cancel/export; job maintenance |
-| Residente | reservas (crear/reprogramar/cancelar/comprobante; rechaza solape y mora), facturas, pagos, visitantes |
+| Residente | reservas (crear/pagar stub/reprogramar/cancelar/comprobante/access-pass/ical; rechaza solape y mora), facturas, pagos, visitantes |
+| Integraciones (Fase 4) | Puertos `Payment` / `Notification` / `AccessControl` / `ImageStorage` / `Calendar` + adapters stub en `app/ports` + `app/adapters` |
 
 Detalle de auth: [FlujoAutenticacion.md](./FlujoAutenticacion.md).
 

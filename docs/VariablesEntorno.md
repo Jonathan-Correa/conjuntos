@@ -36,6 +36,10 @@ Mapeo `Settings` (`app/core/config.py`):
 | `JWT_ACCESS_TOKEN_EXPIRE_MINUTES` | `jwt_access_token_expire_minutes` | `720` |
 | `ALLOW_ADMIN_REGISTER` | `allow_admin_register` | `true` |
 | `SEED_ON_STARTUP` | `seed_on_startup` | `true` |
+| `PAYMENT_ADAPTER` | `payment_adapter` | `stub` |
+| `NOTIFICATION_ADAPTER` | `notification_adapter` | `logging` |
+| `ACCESS_ADAPTER` | `access_adapter` | `local` |
+| `IMAGE_STORAGE_ADAPTER` | `image_storage_adapter` | `url_only` |
 
 Con `ENVIRONMENT=production` el arranque **falla** si el JWT es el default o la `DATABASE_URL` usa passwords débiles (`root`, `password`, etc.).
 

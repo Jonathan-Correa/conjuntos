@@ -19,6 +19,7 @@ Lista operativa de trabajo abierto. Complementa [Roadmap.md](./Roadmap.md) y [De
 - [x] Zonas Sociales Fase 1: CRUD admin, schedules/blackouts/images, catálogo app
 - [x] Zonas Sociales Fase 2: availability/slots, approve/reject/cancel admin, calendario reserva app
 - [x] Zonas Sociales Fase 3: reschedule, completed+jobs, export CSV, comprobante, horarios especiales, docs UI
+- [x] Zonas Sociales Fase 4: puertos Payment/Notification/Access (+ iCal/storage stubs) sin proveedores reales
 
 ## Crítico / inmediato
 
@@ -36,6 +37,7 @@ Lista operativa de trabajo abierto. Complementa [Roadmap.md](./Roadmap.md) y [De
 - [x] Zonas Sociales Fase 1: CRUD admin + schedules/blackouts + catálogo app
 - [x] Zonas Sociales Fase 2: availability engine + approve/reject admin + booking calendar UI
 - [x] Zonas Sociales Fase 3: reschedule, reportes/export, completed, comprobantes, special hours
+- [x] Zonas Sociales Fase 4: puertos de integración (stub) + pay/access-pass/ical
 
 ## Admin
 
