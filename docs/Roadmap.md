@@ -1,6 +1,6 @@
 # Roadmap — ConjunApp
 
-Estado actual: **MVP técnico** (auth dual, seed demo, dashboard admin parcial, app residente con login/home stub).
+Estado actual: **MVP técnico** (auth dual, seed demo, admin con dashboard + tabs operativas, app residente web/móvil con facturas/reservas/visitantes/comunicados).
 
 ## Residentes
 
@@ -19,7 +19,7 @@ Estado actual: **MVP técnico** (auth dual, seed demo, dashboard admin parcial, 
 | Asambleas | Pendiente |
 | Votaciones | Pendiente |
 | Encuestas | Pendiente |
-| Noticias / anuncios | Lectura operativa en app; create solo admin API |
+| Noticias / anuncios | Lectura en app; publicación desde admin UI |
 
 ## Administración
 
@@ -27,14 +27,14 @@ Estado actual: **MVP técnico** (auth dual, seed demo, dashboard admin parcial, 
 |-----------|--------|
 | Gestión de conjuntos | Seed + modelo; UI limitada |
 | Apartamentos / casas (unidades) | API listado |
-| Residentes / propietarios / arrendatarios | API parcial; tipo owner/tenant en registro |
-| Cartera / facturación | Generación y listado básico |
-| Contabilidad | Reporte simple de asientos |
+| Residentes / propietarios / arrendatarios | UI admin: listado, alta, paz y salvo |
+| Cartera / facturación | UI admin: listado + generación por periodo |
+| Contabilidad | Reporte API; sin UI aún |
 | Personal | Pendiente |
 | Proveedores | Pendiente |
 | Presupuestos | Pendiente |
 | Reportes avanzados | Pendiente |
-| Dashboard | KPIs básicos en admin |
+| Dashboard | KPIs + tabs Residentes/Facturas/Reservas/Anuncios |
 
 ## Vigilancia
 
@@ -55,9 +55,9 @@ Estado actual: **MVP técnico** (auth dual, seed demo, dashboard admin parcial, 
 
 ## Hitos técnicos sugeridos
 
-1. **Estabilizar MVP**: arreglar bugs admin (MetricCard, error handling), cablear features residente, Alembic.
-2. **Seguridad**: cerrar registro admin, secretos, roles, rate limit.
-3. **Producto admin**: CRUD unidades, facturas, anuncios, paz y salvo.
-4. **Producto app**: facturas, reservas, invitados operativos.
+1. **Estabilizar MVP**: Alembic + tests; CI lint/typecheck.
+2. **Seguridad**: roles (`is_super_admin`), rate limit, ocultar signup admin cuando el flag está off.
+3. **Producto admin**: reporte contable en UI, CRUD unidades, aprobación de reservas.
+4. **Producto app**: PQRS, documentos; vehículos/mascotas cuando exista API.
 5. **Integraciones** de pago y notificaciones.
 6. **Observabilidad y escala** según [DecisionesArquitectura.md](./DecisionesArquitectura.md).

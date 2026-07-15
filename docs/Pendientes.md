@@ -14,6 +14,7 @@ Lista operativa de trabajo abierto. Complementa [Roadmap.md](./Roadmap.md) y [De
 - [x] Flutter Web en Compose `:5174`
 - [x] Limpiar stub `ApiClient` / `ResidentHomePage` legacy
 - [x] App residente: facturas, reservas, visitantes, comunicados
+- [x] Admin: tabs Residentes, Facturas, Reservas, Anuncios + paz y salvo
 
 ## Crítico / inmediato
 
@@ -30,12 +31,13 @@ Lista operativa de trabajo abierto. Complementa [Roadmap.md](./Roadmap.md) y [De
 
 ## Admin
 
-- [ ] Completar tabs (Residentes, Facturas, Reservas, Anuncios)
-- [ ] Usar endpoints ya tipados (`generateInvoices`, paz y salvo, etc.)
+- [x] Completar tabs (Residentes, Facturas, Reservas, Anuncios)
+- [x] Usar endpoints ya tipados (`generateInvoices`, paz y salvo, etc.)
 - [ ] ESLint, typecheck en CI
 - [ ] Separar `dependencies` / `devDependencies`
 - [ ] Unificar diseño visual login/signup
 - [ ] Ocultar/deshabilitar `/signup` cuando el registro admin esté off
+- [ ] UI de reporte contable (`/admin/accounting-report`)
 
 ## App Flutter
 

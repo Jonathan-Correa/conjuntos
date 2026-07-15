@@ -30,7 +30,6 @@ Informe de hallazgos. **No eliminar código sin justificar** en PR/cambio.
 
 | Hallazgo | Repo | Severidad |
 |----------|------|-----------|
-| Tabs admin sin handlers / datos no renderizados | admin | Media |
 | `is_super_admin` sin enforcement | back | Media |
 | `datetime.utcnow` deprecado | back | Baja |
 | Credenciales demo visibles en formularios de login | admin/app | Baja (demo) |
@@ -38,10 +37,11 @@ Informe de hallazgos. **No eliminar código sin justificar** en PR/cambio.
 > **Resuelto (2026-07-15):** el dashboard admin llamaba `/invoices` y `/reservations` (rol residente) con JWT admin → `Sesion de residente invalida`. Ahora usa `/admin/invoices` y `/admin/reservations`.
 >
 > **Resuelto (2026-07-15):** eliminado stub `ApiClient` / `ResidentHomePage` legacy; home cableado a facturas, reservas, visitantes y comunicados.
+>
+> **Resuelto (2026-07-15):** tabs admin cableadas (Residentes, Facturas, Reservas, Anuncios) con alta de residente, generación de facturas, anuncios y paz y salvo.
 
 ## Código muerto / duplicado
 
-- Admin: tabs decorativas.
 - Modelos `Vehicle` / `Pet` sin endpoints.
 - `AdminUser` tipado duplicado en store y api (admin).
 
@@ -56,7 +56,7 @@ Informe de hallazgos. **No eliminar código sin justificar** en PR/cambio.
 
 ## Priorización sugerida
 
-1. Completar UI admin contra APIs existentes.
-2. Alembic + tests.
+1. Alembic + tests.
+2. CI (lint/typecheck/build).
 3. RBAC con `is_super_admin`.
 4. Vehículos/mascotas (API + UI).

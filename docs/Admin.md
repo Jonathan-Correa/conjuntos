@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Panel web para administradores del conjunto: login, registro y dashboard con KPIs y listados parciales de residentes y facturas.
+Panel web para administradores del conjunto: login, registro (si está permitido), dashboard con KPIs y pantallas operativas de residentes, facturas, reservas, anuncios y paz y salvo.
 
 ## Tecnologías
 
@@ -20,15 +20,30 @@ Panel web para administradores del conjunto: login, registro y dashboard con KPI
 
 ```
 src/
-├── main.tsx, App.tsx, styles.css
+├── main.tsx, App.tsx, styles.css, vite-env.d.ts
 ├── lib/api.ts
 ├── store/auth.ts
 ├── hooks/useAuth.ts
-├── pages/ Login, Signup, Dashboard
-└── components/ ProtectedRoute, forms, MetricCard
+├── pages/
+│   ├── LoginPage, AdminSignupPage, DashboardPage
+│   ├── ResidentsPage (alta + paz y salvo)
+│   ├── InvoicesPage (listado + generate)
+│   ├── ReservationsPage (solo lectura)
+│   └── AnnouncementsPage (publicar)
+└── components/ AdminLayout, ProtectedRoute, forms, MetricCard
 ```
 
-Rutas: `/` login, `/signup` registro, `/dashboard` protegida.
+Rutas (protegidas salvo login/signup):
+
+| Ruta | Pantalla |
+|------|----------|
+| `/` | Login |
+| `/signup` | Registro admin |
+| `/dashboard` | KPIs |
+| `/dashboard/residents` | Residentes + paz y salvo |
+| `/dashboard/invoices` | Facturas |
+| `/dashboard/reservations` | Reservas |
+| `/dashboard/announcements` | Anuncios |
 
 ## Instalación
 
@@ -74,13 +89,15 @@ Dev: hot reload en puerto 5173. Prod: build estático + nginx (ver `docker-compo
 
 | Síntoma | Acción |
 |---------|--------|
-| Spinner infinito en dashboard | API caída o error sin catch; ver red y backend |
+| Error en dashboard / listados | Ver mensaje en UI; revisar red y JWT admin |
 | CORS | Revisar `CORS_ORIGINS` en back |
 | Login falla | Verificar seed y URL en `.env` |
-| Métricas sin título | Bug conocido de props en `MetricCard` (ver DeudaTecnica) |
+| Paz y salvo deshabilitado | Unidad morosa (saldo pendiente); API responde 409 |
+| Alta residente falla | `initial_password` mínimo 8 caracteres |
 
 ## Convenciones
 
 - Token en `localStorage` vía Zustand persist (`auth-store`).
 - Cliente HTTP nativo (`fetch`) en `lib/api.ts`.
+- Shell común: `AdminLayout` con `NavLink` por sección.
 - UI en español.
