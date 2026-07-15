@@ -57,7 +57,7 @@ Estado actual: **MVP técnico** (auth dual, seed demo, admin con dashboard + tab
 
 1. **Estabilizar MVP**: Alembic + tests; CI lint/typecheck.
 2. **Seguridad**: roles (`is_super_admin`), rate limit, ocultar signup admin cuando el flag está off.
-3. **Producto admin**: reporte contable en UI, CRUD unidades, aprobación de reservas.
+3. **Producto admin / Zonas Sociales**: Fase 0 hecha (motor reservas); Fase 1+ CRUD zonas, schedules, aprobación UI; reporte contable.
 4. **Producto app**: PQRS, documentos; vehículos/mascotas cuando exista API.
 5. **Integraciones** de pago y notificaciones.
 6. **Observabilidad y escala** según [DecisionesArquitectura.md](./DecisionesArquitectura.md).

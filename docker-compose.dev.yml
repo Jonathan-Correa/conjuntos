@@ -7,6 +7,8 @@ services:
       target: development
     volumes:
       - ./conjunapp-back/app:/app/app
+      - ./conjunapp-back/alembic:/app/alembic
+      - ./conjunapp-back/alembic.ini:/app/alembic.ini
     command:
       [
         "uvicorn",

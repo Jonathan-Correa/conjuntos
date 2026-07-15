@@ -15,10 +15,12 @@ Lista operativa de trabajo abierto. Complementa [Roadmap.md](./Roadmap.md) y [De
 - [x] Limpiar stub `ApiClient` / `ResidentHomePage` legacy
 - [x] App residente: facturas, reservas, visitantes, comunicados
 - [x] Admin: tabs Residentes, Facturas, Reservas, Anuncios + paz y salvo
+- [x] Zonas Sociales Fase 0: Alembic aditivo, servicio reservas, reject overlap, bloqueo mora, scoping `complex_id`
 
 ## Crítico / inmediato
 
-- [ ] Introducir Alembic y retirar dependencia exclusiva de `create_all`
+- [x] Introducir Alembic (migración aditiva; `create_all` aún bootstrap en startup)
+- [ ] Retirar por completo `create_all` (solo Alembic)
 
 ## Backend
 
@@ -26,8 +28,9 @@ Lista operativa de trabajo abierto. Complementa [Roadmap.md](./Roadmap.md) y [De
 - [ ] Endpoints para `Vehicle` y `Pet`
 - [ ] Usar `is_super_admin` en autorización
 - [ ] Transacciones / asientos al facturar y pagar
-- [ ] Tests (pytest + httpx)
+- [x] Tests iniciales reservas (pytest)
 - [ ] Sustituir `datetime.utcnow`
+- [ ] Zonas Sociales Fase 1: CRUD admin + schedules/blackouts + catálogo app
 
 ## Admin
 

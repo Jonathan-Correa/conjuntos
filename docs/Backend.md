@@ -12,10 +12,12 @@ API REST de ConjunApp. Expone autenticación dual (admin / residente), dashboard
 | FastAPI | 0.115.6 |
 | Uvicorn | 0.34.0 |
 | SQLAlchemy | 2.x |
+| Alembic | migraciones |
 | PostgreSQL | 16 (Compose) |
 | pydantic-settings | 2.7.1 |
 | passlib + bcrypt | passwords |
 | python-jose | JWT HS256 |
+| pytest | tests |
 
 ## Estructura
 
@@ -23,15 +25,18 @@ API REST de ConjunApp. Expone autenticación dual (admin / residente), dashboard
 conjunapp-back/
 ├── Dockerfile
 ├── requirements.txt
+├── alembic.ini
+├── alembic/versions/
+├── tests/
 ├── .env.example
 └── app/
     ├── main.py
     ├── core/config.py, security.py
-    ├── db/session.py
+    ├── db/session.py, migrate.py
     ├── models/domain.py
     ├── schemas/domain.py
     ├── api/auth.py, routes.py
-    └── services/seed.py
+    └── services/seed.py, reservations.py
 ```
 
 ## Instalación local
@@ -60,9 +65,10 @@ Prefijo: `/api/v1`. Documentación interactiva: `/docs`.
 | Health | `GET /health` |
 | Auth admin | `POST /auth/admin/login`, `/register`, `GET /auth/admin/me` |
 | Auth residente | `POST /auth/resident/login`, `/register`, `GET /auth/resident/me` |
-| Catálogo | `GET /towers`, `/common-areas`, `/announcements` |
-| Admin | `/admin/dashboard`, `/admin/units`, `/admin/residents`, facturas, anuncios, paz y salvo, contabilidad |
-| Residente | reservas, facturas, pagos, visitantes |
+| Catálogo | `GET /towers`, `/announcements` |
+| Zonas sociales | `GET /common-areas` (JWT residente, scoped); `GET /admin/common-areas` |
+| Admin | `/admin/dashboard`, `/admin/units`, `/admin/residents`, facturas, anuncios, paz y salvo, contabilidad, reservas |
+| Residente | reservas (crear rechaza solape y mora), facturas, pagos, visitantes |
 
 Detalle de auth: [FlujoAutenticacion.md](./FlujoAutenticacion.md).
 
@@ -70,10 +76,11 @@ Detalle de auth: [FlujoAutenticacion.md](./FlujoAutenticacion.md).
 
 PostgreSQL vía SQLAlchemy. Al arrancar:
 
-1. `Base.metadata.create_all`
-2. `seed_database` si no hay conjuntos
+1. `Base.metadata.create_all` (bootstrap)
+2. `alembic upgrade head`
+3. `seed_database` (crea demo o backfill `admin.complex_id`)
 
-Modelo: [BaseDatos.md](./BaseDatos.md).
+Modelo: [BaseDatos.md](./BaseDatos.md). Reservas: `app/services/reservations.py`.
 
 ## Docker
 

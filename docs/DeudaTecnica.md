@@ -39,6 +39,8 @@ Informe de hallazgos. **No eliminar código sin justificar** en PR/cambio.
 > **Resuelto (2026-07-15):** eliminado stub `ApiClient` / `ResidentHomePage` legacy; home cableado a facturas, reservas, visitantes y comunicados.
 >
 > **Resuelto (2026-07-15):** tabs admin cableadas (Residentes, Facturas, Reservas, Anuncios) con alta de residente, generación de facturas, anuncios y paz y salvo.
+>
+> **Resuelto (2026-07-15) Fase 0 Zonas Sociales:** Alembic aditivo; `reservations` service; reject overlap (sin waitlist); bloqueo por mora; `GET /common-areas` autenticado + scoped; `AdminUser.complex_id`; admin usa `/admin/common-areas`.
 
 ## Código muerto / duplicado
 

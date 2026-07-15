@@ -5,7 +5,8 @@
 - **PostgreSQL 16** (Compose)
 - Driver: `psycopg` 3 vía SQLAlchemy URL `postgresql+psycopg://...`
 - ORM: SQLAlchemy 2 (`Mapped` / `mapped_column`)
-- Migraciones: **ninguna** (solo `Base.metadata.create_all` en startup)
+- Migraciones: **Alembic** (`alembic/`, arranque ejecuta `upgrade head`)
+- Bootstrap fresco: `create_all` + migraciones aditivas (Phase 0; meta: solo Alembic)
 
 ## Diagrama ER simplificado
 
@@ -37,13 +38,13 @@ erDiagram
 | `residential_complexes` | ResidentialComplex | Conjunto |
 | `towers` | Tower | Unique (complex, name) |
 | `units` | Unit | Unique (tower, number); cuota, coeficiente |
-| `admin_users` | AdminUser | Auth admin |
+| `admin_users` | AdminUser | Auth admin; `complex_id` opcional (scoping) |
 | `resident_users` | ResidentUser | Auth residente |
 | `residents` | Resident | 1:1 user; FK unit |
 | `vehicles` | Vehicle | Sin API aún |
 | `pets` | Pet | Sin API aún |
-| `common_areas` | CommonArea | Zonas comunes |
-| `reservations` | Reservation | Enum status |
+| `common_areas` | CommonArea | Zonas sociales; índice `(complex_id, is_active)` |
+| `reservations` | Reservation | Índices área/tiempos y residente/status |
 | `invoices` / `invoice_items` | Invoice* | Facturación |
 | `payments` | Payment | Pagos |
 | `payment_agreements` | PaymentAgreement | Acuerdos |

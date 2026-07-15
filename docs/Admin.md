@@ -42,7 +42,7 @@ Rutas (protegidas salvo login/signup):
 | `/dashboard` | KPIs |
 | `/dashboard/residents` | Residentes + paz y salvo |
 | `/dashboard/invoices` | Facturas |
-| `/dashboard/reservations` | Reservas |
+| `/dashboard/reservations` | Reservas (listado; catálogo vía `/admin/common-areas`) |
 | `/dashboard/announcements` | Anuncios |
 
 ## Instalación
