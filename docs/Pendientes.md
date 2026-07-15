@@ -16,6 +16,7 @@ Lista operativa de trabajo abierto. Complementa [Roadmap.md](./Roadmap.md) y [De
 - [x] App residente: facturas, reservas, visitantes, comunicados
 - [x] Admin: tabs Residentes, Facturas, Reservas, Anuncios + paz y salvo
 - [x] Zonas Sociales Fase 0: Alembic aditivo, servicio reservas, reject overlap, bloqueo mora, scoping `complex_id`
+- [x] Zonas Sociales Fase 1: CRUD admin, schedules/blackouts/images, catálogo app
 
 ## Crítico / inmediato
 
@@ -30,7 +31,8 @@ Lista operativa de trabajo abierto. Complementa [Roadmap.md](./Roadmap.md) y [De
 - [ ] Transacciones / asientos al facturar y pagar
 - [x] Tests iniciales reservas (pytest)
 - [ ] Sustituir `datetime.utcnow`
-- [ ] Zonas Sociales Fase 1: CRUD admin + schedules/blackouts + catálogo app
+- [x] Zonas Sociales Fase 1: CRUD admin + schedules/blackouts + catálogo app
+- [ ] Zonas Sociales Fase 2: availability engine + approve/reject admin + booking calendar UI
 
 ## Admin
 

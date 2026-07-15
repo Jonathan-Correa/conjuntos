@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Cliente Flutter **ConjunApp Residentes** con autenticación, home y flujos operativos de facturas, reservas, visitantes y comunicados. Disponible como Flutter Web en Compose (`:5174`) y como app nativa.
+Cliente Flutter **ConjunApp Residentes** con autenticación, home, zonas sociales (catálogo/detalle), facturas, reservas, visitantes y comunicados. Disponible como Flutter Web en Compose (`:5174`) y como app nativa.
 
 ## Tecnologías
 
@@ -18,12 +18,13 @@ Cliente Flutter **ConjunApp Residentes** con autenticación, home y flujos opera
 
 ```
 lib/
-├── main.dart                 # entry + código legacy ResidentHomePage
+├── main.dart
 └── src/
     ├── models/auth.dart
     ├── providers/auth_provider.dart
-    ├── services/auth_service.dart, api_client.dart
-    └── screens/login, signup, home
+    ├── services/auth_service.dart, api_client.dart, resident_api.dart
+    └── screens/ login, signup, home, common_areas, common_area_detail,
+                 reservations, invoices, visitors, announcements
 ```
 
 ## Instalación
