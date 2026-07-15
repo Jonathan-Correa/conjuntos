@@ -16,17 +16,16 @@ docker compose up --build
 | `db` | `postgres:16-alpine` | 5432 | PostgreSQL |
 | `back` | `./conjunapp-back` | 8000 | FastAPI |
 | `admin` | `./conjunapp-admin` | 5173 (dev) / 8080 (prod) | Panel React |
-
-La app Flutter (`conjunapp-app`) se desarrolla en host; opcionalmente build web con `Dockerfile.web`.
+| `resident` | `./conjunapp-app` (`Dockerfile.web`) | 5174 | App residentes (Flutter Web + nginx) |
 
 ## Archivos
 
 | Archivo | Uso |
 |---------|-----|
-| `docker-compose.yml` | Base (db + back + admin) |
-| `docker-compose.dev.yml` | Overrides de desarrollo (hot reload, volúmenes) |
-| `docker-compose.prod.yml` | Overrides de producción (admin nginx, sin reload) |
-| `*/Dockerfile` | Build de cada servicio |
+| `docker-compose.yml` | Base (db + back + admin + resident) |
+| `docker-compose.dev.yml` | Overrides de desarrollo (hot reload admin/back) |
+| `docker-compose.prod.yml` | Overrides de producción |
+| `*/Dockerfile` / `Dockerfile.web` | Build de cada servicio |
 | `*/.dockerignore` | Contexto mínimo |
 | `.env.example` | Variables del compose |
 
@@ -39,48 +38,35 @@ La app Flutter (`conjunapp-app`) se desarrolla en host; opcionalmente build web 
 
 - `db`: `pg_isready`
 - `back`: HTTP `GET /api/v1/health`
-- `admin` (prod): `wget` a nginx
+- `admin` (prod) / `resident`: `wget` a nginx `/` o `/health`
 
-`back` espera a `db` healthy antes de arrancar.
+`back` espera a `db` healthy; `admin` y `resident` esperan a `back` healthy.
+
+## App residentes en el navegador
+
+Tras `docker compose up --build`:
+
+- URL: http://localhost:5174
+- Login: `ana@example.com` / `residente123`
+
+La primera compilación Flutter puede tardar varios minutos. `RESIDENT_API_BASE_URL` se embebe en build-time y debe ser alcanzable **desde el navegador** (`http://localhost:8000/api/v1`).
 
 ## Migraciones
 
-Hoy no hay Alembic. El schema se crea en startup (`create_all`) y el seed corre si la DB está vacía. Cuando se añada Alembic, el entrypoint de `back` deberá ejecutar `alembic upgrade head` antes de Uvicorn.
+Hoy no hay Alembic. El schema se crea en startup (`create_all`) y el seed corre si la DB está vacía.
 
 ## Comandos útiles
 
 ```bash
-# Desarrollo por defecto
 docker compose up --build
-
-# Dev explícito
-docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
-
-# Producción local
-docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
-
-# Solo infraestructura
-docker compose up db
-
-# Logs
-docker compose logs -f back
-
-# Rebuild limpio
+docker compose up --build resident   # solo reconstruir app residentes
+docker compose logs -f resident
 docker compose down -v
-docker compose up --build
 ```
 
-## Flutter
+## Flutter nativo (opcional)
 
 ```bash
 cd conjunapp-app
 flutter run --dart-define=API_BASE_URL=http://10.0.2.2:8000/api/v1
 ```
-
-Con back en Docker, desde emulador Android el host es `10.0.2.2`.
-
-## Notas de optimización
-
-- Backend: imagen slim Python 3.12, usuario no-root, healthcheck.
-- Admin prod: multi-stage Node build → nginx alpine.
-- Admin dev: `npm run dev -- --host 0.0.0.0` con bind mounts.

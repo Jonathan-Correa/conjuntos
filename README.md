@@ -20,7 +20,7 @@ Permite a la administración gestionar unidades, residentes, cartera y comunicad
 flowchart LR
   subgraph Clientes
     Admin[conjunapp-admin<br/>React :5173]
-    App[conjunapp-app<br/>Flutter]
+    App[conjunapp-app web<br/>Flutter :5174]
   end
 
   subgraph Infra
@@ -60,18 +60,19 @@ docker compose up --build
 
 Servicios:
 
-| Servicio | URL |
-|----------|-----|
-| API + Swagger | http://localhost:8000/docs |
-| Admin (Vite) | http://localhost:5173 |
-| PostgreSQL | localhost:5432 |
+| Servicio | URL | Login demo |
+|----------|-----|------------|
+| API + Swagger | http://localhost:8000/docs | — |
+| Admin (Vite) | http://localhost:5173 | `admin@conjunapp.com` / `admin123` |
+| Residentes (Flutter Web) | http://localhost:5174 | `ana@example.com` / `residente123` |
+| PostgreSQL | localhost:5432 | — |
 
 Credenciales demo (seed automático al arrancar el backend):
 
-| Rol | Email | Password |
-|-----|-------|----------|
-| Admin | `admin@conjunapp.com` | `admin123` |
-| Residente | `ana@example.com` | `residente123` |
+| Rol | Email | Password | Dónde |
+|-----|-------|----------|-------|
+| Admin | `admin@conjunapp.com` | `admin123` | :5173 |
+| Residente | `ana@example.com` | `residente123` | :5174 |
 
 ### Variantes Compose
 
@@ -80,11 +81,13 @@ docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
 docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build -d
 ```
 
+> La primera build de `resident` (Flutter) puede tardar varios minutos.
+
 Detalle en [`docs/Docker.md`](./docs/Docker.md).
 
-## App Flutter (fuera de Compose)
+## App Flutter (móvil / desktop)
 
-La app móvil/desktop se ejecuta con el SDK de Flutter:
+Además de la web en `:5174`, puedes correr la app nativa con el SDK:
 
 ```bash
 cd conjunapp-app

@@ -32,3 +32,8 @@ services:
       timeout: 5s
       retries: 5
       start_period: 10s
+
+  resident:
+    restart: always
+    ports: !override
+      - "5174:80"

@@ -38,7 +38,7 @@ services:
       APP_NAME: ${APP_NAME:-ConjunApp API}
       ENVIRONMENT: ${ENVIRONMENT:-development}
       DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://postgres:root@db:5432/conjunapp}
-      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173,http://localhost:8080,http://127.0.0.1:5173}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173,http://localhost:5174,http://localhost:8080,http://127.0.0.1:5173,http://127.0.0.1:5174}
       JWT_SECRET_KEY: ${JWT_SECRET_KEY:-change-this-secret-in-production}
       JWT_ALGORITHM: ${JWT_ALGORITHM:-HS256}
       JWT_ACCESS_TOKEN_EXPIRE_MINUTES: ${JWT_ACCESS_TOKEN_EXPIRE_MINUTES:-720}
@@ -82,6 +82,33 @@ services:
         condition: service_healthy
     networks:
       - conjunapp-net
+
+  # App de residentes (Flutter Web) — probar en navegador sin emulador/móvil
+  resident:
+    build:
+      context: ./conjunapp-app
+      dockerfile: Dockerfile.web
+      args:
+        API_BASE_URL: ${RESIDENT_API_BASE_URL:-http://localhost:8000/api/v1}
+    container_name: conjunapp-resident
+    restart: unless-stopped
+    ports:
+      - "5174:80"
+    depends_on:
+      back:
+        condition: service_healthy
+    networks:
+      - conjunapp-net
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget -qO- http://127.0.0.1/health >/dev/null || exit 1",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
 
 networks:
   conjunapp-net:

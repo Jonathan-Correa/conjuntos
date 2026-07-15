@@ -48,13 +48,28 @@ flutter run --dart-define=API_BASE_URL=http://10.0.2.2:8000/api/v1
 
 No usa archivos `.env` de Flutter; el `.env.example` del repo documenta el dart-define.
 
-## Docker
+## Docker / Web
 
-La app móvil no forma parte del `docker compose up` principal. Opcionalmente existe `Dockerfile.web` para build web (documentado en Docker.md). Desarrollo diario: SDK Flutter en host.
+Con Compose, el servicio `resident` publica Flutter Web en http://localhost:5174.
+
+```bash
+# desde la raíz del monorepo
+docker compose up --build resident
+```
+
+Login demo: `ana@example.com` / `residente123`.
+
+Build manual:
+
+```bash
+cd conjunapp-app
+docker build -f Dockerfile.web -t conjunapp-app-web \
+  --build-arg API_BASE_URL=http://localhost:8000/api/v1 .
+```
 
 ## Plataformas
 
-Android, iOS, Web, Windows, macOS, Linux (scaffolds Flutter).
+Android, iOS, Web, Windows, macOS, Linux (scaffolds Flutter). **Web vía Docker es la vía recomendada para demos sin móvil.**
 
 ## Features actuales
 

@@ -14,11 +14,12 @@ Toda variable usada por el sistema está documentada aquí. Plantillas: `.env.ex
 | `JWT_SECRET_KEY` | `change-this-secret-in-production` | Secreto JWT |
 | `JWT_ALGORITHM` | `HS256` | Algoritmo JWT |
 | `JWT_ACCESS_TOKEN_EXPIRE_MINUTES` | `720` | Expiración en minutos |
-| `CORS_ORIGINS` | `http://localhost:5173,http://localhost:8080` | Orígenes permitidos (CSV) |
+| `CORS_ORIGINS` | `http://localhost:5173,http://localhost:5174,...` | Orígenes permitidos (CSV) |
 | `APP_NAME` | `ConjunApp API` | Título OpenAPI |
 | `ALLOW_ADMIN_REGISTER` | `true` (dev) / `false` (prod compose) | Habilita `POST /auth/admin/register` |
 | `SEED_ON_STARTUP` | `true` (dev) / `false` (prod compose) | Ejecuta seed demo al arrancar |
 | `VITE_API_BASE_URL` | `http://localhost:8000/api/v1` | Base API para el admin (build/runtime Vite) |
+| `RESIDENT_API_BASE_URL` | `http://localhost:8000/api/v1` | Base API embebida en Flutter Web (build-time) |
 
 ## conjunapp-back
 
