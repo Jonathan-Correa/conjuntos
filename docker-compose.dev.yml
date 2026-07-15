@@ -1,0 +1,30 @@
+# Overrides de desarrollo — hot reload y volúmenes montados
+# docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+
+services:
+  back:
+    build:
+      target: development
+    volumes:
+      - ./conjunapp-back/app:/app/app
+    command:
+      [
+        "uvicorn",
+        "app.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--reload",
+      ]
+
+  admin:
+    build:
+      target: development
+    volumes:
+      - ./conjunapp-admin/src:/app/src
+      - ./conjunapp-admin/index.html:/app/index.html
+      - ./conjunapp-admin/vite.config.ts:/app/vite.config.ts
+    ports:
+      - "5173:5173"
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]

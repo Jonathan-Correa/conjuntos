@@ -1,0 +1,9 @@
+[submodule "conjunapp-back"]
+	path = conjunapp-back
+	url = git@github.com:Jonathan-Correa/conjunapp-back.git
+[submodule "conjunapp-admin"]
+	path = conjunapp-admin
+	url = git@github.com:Jonathan-Correa/conjunapp-admin.git
+[submodule "conjunapp-app"]
+	path = conjunapp-app
+	url = git@github.com:Jonathan-Correa/conjunapp-app.git
