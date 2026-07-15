@@ -36,6 +36,8 @@ Informe de hallazgos. **No eliminar código sin justificar** en PR/cambio.
 | `is_super_admin` sin enforcement | back | Media |
 | `datetime.utcnow` deprecado | back | Baja |
 
+> **Resuelto (2026-07-15):** el dashboard admin llamaba `/invoices` y `/reservations` (rol residente) con JWT admin → `Sesion de residente invalida`. Ahora usa `/admin/invoices` y `/admin/reservations`.
+
 ## Código muerto / duplicado
 
 - Admin: tabs decorativas; CSS de sidebar antiguo.
