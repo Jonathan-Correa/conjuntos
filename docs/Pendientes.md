@@ -11,11 +11,13 @@ Lista operativa de trabajo abierto. Complementa [Roadmap.md](./Roadmap.md) y [De
 - [x] Seed controlado por `SEED_ON_STARTUP`
 - [x] Validación de pagos vs saldo
 - [x] Password inicial explícito al crear residente (`initial_password`)
+- [x] Flutter Web en Compose `:5174`
+- [x] Limpiar stub `ApiClient` / `ResidentHomePage` legacy
+- [x] App residente: facturas, reservas, visitantes, comunicados
 
 ## Crítico / inmediato
 
 - [ ] Introducir Alembic y retirar dependencia exclusiva de `create_all`
-- [ ] Limpiar stub `ApiClient` / `ResidentHomePage` legacy en Flutter
 
 ## Backend
 
@@ -37,9 +39,8 @@ Lista operativa de trabajo abierto. Complementa [Roadmap.md](./Roadmap.md) y [De
 
 ## App Flutter
 
-- [ ] Implementar acciones del home (facturas, reservas, vehículos, mascotas)
+- [ ] Endpoints UI para vehículos / mascotas (cuando exista API)
 - [ ] Refresh token o renovación explícita
-- [ ] Corregir `widget_test.dart`
 - [ ] Cambiar application id `com.example.*`
 - [ ] Documentar cleartext / network security por ambiente
 

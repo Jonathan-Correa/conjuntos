@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Cliente Flutter **ConjunApp Residentes** para autenticación de residentes, registro (torre/unidad) y home placeholder. Parte de la UI de negocio (facturas, reservas, visitantes) existe como código legacy no cableado.
+Cliente Flutter **ConjunApp Residentes** con autenticación, home y flujos operativos de facturas, reservas, visitantes y comunicados. Disponible como Flutter Web en Compose (`:5174`) y como app nativa.
 
 ## Tecnologías
 
@@ -73,12 +73,12 @@ Android, iOS, Web, Windows, macOS, Linux (scaffolds Flutter). **Web vía Docker 
 
 ## Features actuales
 
-- Login / logout residente
-- Registro con selección de torre y unidad
-- Home con accesos rápidos (stubs)
-- Persistencia segura del JWT
-
-No operativos en el flujo actual: tabs legacy de facturas/reservas/visitantes/avisos en `main.dart`.
+- Login / logout / registro residente
+- Home con acciones rápidas
+- Facturas (listado + pago simulado PSE)
+- Reservas de zonas comunes (crear / cancelar)
+- Visitantes (invitación + código QR texto)
+- Comunicados / anuncios
 
 ## Troubleshooting
 

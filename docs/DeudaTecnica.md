@@ -30,21 +30,20 @@ Informe de hallazgos. **No eliminar código sin justificar** en PR/cambio.
 
 | Hallazgo | Repo | Severidad |
 |----------|------|-----------|
-| `widget_test` sin Provider / aserción incorrecta | app | Media |
-| Dos `ApiClient` (stub vs real) | app | Alta (confusión) |
 | Tabs admin sin handlers / datos no renderizados | admin | Media |
 | `is_super_admin` sin enforcement | back | Media |
 | `datetime.utcnow` deprecado | back | Baja |
+| Credenciales demo visibles en formularios de login | admin/app | Baja (demo) |
 
 > **Resuelto (2026-07-15):** el dashboard admin llamaba `/invoices` y `/reservations` (rol residente) con JWT admin → `Sesion de residente invalida`. Ahora usa `/admin/invoices` y `/admin/reservations`.
+>
+> **Resuelto (2026-07-15):** eliminado stub `ApiClient` / `ResidentHomePage` legacy; home cableado a facturas, reservas, visitantes y comunicados.
 
 ## Código muerto / duplicado
 
-- Admin: tabs decorativas; CSS de sidebar antiguo.
-- App: `ResidentHomePage` + stub API en `main.dart` no usados como home.
+- Admin: tabs decorativas.
 - Modelos `Vehicle` / `Pet` sin endpoints.
 - `AdminUser` tipado duplicado en store y api (admin).
-- `API_BASE_URL` duplicado en auth_service y api_client (app).
 
 ## Dependencias / calidad
 
@@ -57,7 +56,7 @@ Informe de hallazgos. **No eliminar código sin justificar** en PR/cambio.
 
 ## Priorización sugerida
 
-1. Limpiar dualidad ApiClient / legacy Flutter.
-2. Completar UI admin contra APIs existentes.
-3. Alembic + tests.
-4. RBAC con `is_super_admin`.
+1. Completar UI admin contra APIs existentes.
+2. Alembic + tests.
+3. RBAC con `is_super_admin`.
+4. Vehículos/mascotas (API + UI).

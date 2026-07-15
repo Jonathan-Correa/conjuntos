@@ -6,20 +6,20 @@ Estado actual: **MVP técnico** (auth dual, seed demo, dashboard admin parcial, 
 
 | Capacidad | Estado |
 |-----------|--------|
-| Auth login / registro | Parcial (funcional en API + app) |
-| Home / perfil | Stub en app |
-| Reservas (piscinas, salones, BBQ, canchas, gimnasios) | API básica; UI app legacy desconectada |
-| Pagos de administración | API stub (sin pasarela real) |
+| Auth login / registro | Funcional (API + app web/móvil) |
+| Home / perfil | Funcional básico |
+| Reservas (piscinas, salones, BBQ, canchas, gimnasios) | Operativo en app (API + UI) |
+| Pagos de administración | Operativo simulado (sin pasarela real) |
 | PQRS | Pendiente |
 | Correspondencia | Pendiente |
-| Invitados / visitantes | API básica; UI legacy |
+| Invitados / visitantes | Operativo en app (QR texto) |
 | Vehículos | Modelo sin API |
 | Mascotas | Modelo sin API |
 | Documentos | Pendiente |
 | Asambleas | Pendiente |
 | Votaciones | Pendiente |
 | Encuestas | Pendiente |
-| Noticias / anuncios | API lectura + create admin; UI incompleta |
+| Noticias / anuncios | Lectura operativa en app; create solo admin API |
 
 ## Administración
 
